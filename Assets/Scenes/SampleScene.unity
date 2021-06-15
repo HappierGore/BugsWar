@@ -774,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.79, y: 0, z: -10}
+  m_LocalPosition: {x: 0.51, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dd89edc9cb3364a8c383b9a043f7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase1Mob1Cooldown: 12
 --- !u!114 &1062466148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a697cfc08a3504e827fbd3823c7313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodMultiplierSpeed: 0.5
+  foodMultiplierSpeed: 0.8
   foodMultiplierCost: 0
   foodMultiplicerTimesUpgraded: 0
 --- !u!1 &1134944305
@@ -1569,7 +1570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105153695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6, y: 0, z: 0}
+  m_LocalPosition: {x: 9.67, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

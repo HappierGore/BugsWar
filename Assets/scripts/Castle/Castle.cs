@@ -10,9 +10,10 @@ public class Castle : MonoBehaviour
         stats = GetComponent<CastleStats>();
     }
 
-    // Update is called once per frame
+    //Manager del castillo
     void Update()
     {
+        //Si el castillo es destruido, desactivamos el objetos
         if (stats.castleEvents.destroyed)
         {
             this.gameObject.SetActive(false);

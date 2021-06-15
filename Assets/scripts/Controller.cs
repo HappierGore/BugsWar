@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     private ScaleGestureRecognizer scaleGesture;
     private PanGestureRecognizer panGesture;
     private float scalingZ = 5.0f;
-    public static Vector3 clickedPosition;
+    [SerializeField] public static Vector3 clickedPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +62,12 @@ public class Controller : MonoBehaviour
     {
         if (gesture.State == GestureRecognizerState.Executing)
         {
+            Debug.Log("Ejecutando");
             float deltaX = panGesture.DeltaX / 100.0f;
             Vector3 pos = camara.transform.position;
             pos.x += deltaX * -1;
-            if (MobMovement.ownCastle.position.x + 8.0f < pos.x &&  MobMovement.ownCastle.position.x < camara.transform.position.x &&
-                MobMovement.enemyCastle.position.x - 8.0f > pos.x && MobMovement.enemyCastle.position.x > camara.transform.position.x)
+            if (MobMovement.ownCastle.position.x + 7.0f < pos.x &&  MobMovement.ownCastle.position.x < camara.transform.position.x &&
+                MobMovement.enemyCastle.position.x - 7.0f > pos.x && MobMovement.enemyCastle.position.x > camara.transform.position.x)
             {
                 camara.transform.position = pos;
             }

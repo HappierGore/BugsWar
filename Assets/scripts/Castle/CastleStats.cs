@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CastleStats : MonoBehaviour
 {
-
+    //Vida del castillo
     [SerializeField] float health = 0.0f;
+    //Definir si el castillo es aliado o enemigo
     [SerializeField] bool isAlly = false;
-
+    //Eventos del castillo
     public CastleEvents castleEvents = new CastleEvents();
     //Getters
     public float GetHealth()
@@ -18,8 +19,9 @@ public class CastleStats : MonoBehaviour
     {
         return isAlly;
     }
-    //Modifiers
 
+
+    //Recibe daño el castillo
     public IEnumerator TakeDamage(float damageTaken)
     {
         health -= damageTaken;
