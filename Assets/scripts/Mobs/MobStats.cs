@@ -48,16 +48,24 @@ public class MobStats : MonoBehaviour
     {
         isAlly = false;
     }
+
+    //Función en corutina para evitar múltiples ejecuciones de este evento
     public IEnumerator TakeDamage(float damageTaken)
     {
+        //Reducción de vida del mob en cuestión
         health -= damageTaken;
+        //Dispara evento "damaged"
         mobEvents.damaged = true;
         yield return new WaitForEndOfFrame();
+        //Regresa el evento "damaged" a nulo
         mobEvents.damaged = false;
+        //Si la vida es menor a cero
         if(health <= 0)
         {
+            //Dispara evento "died"
             mobEvents.died = true;
             yield return new WaitForEndOfFrame();
+            //Regresa el evento "died" a nulo
             mobEvents.died = false;
         }
     }
