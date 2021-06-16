@@ -13,4 +13,7 @@ public class MobEvents
     //Health Events
     public bool damaged = false;
     public bool died = false;
+
+    //Anim events
+    public bool endAttackFrame = false;
 }

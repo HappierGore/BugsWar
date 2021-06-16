@@ -9,6 +9,7 @@ public class MobStats : MonoBehaviour
 
     [SerializeField] float health = 0.0f, speed = 0.0f, defense = 0.0f;
     [SerializeField] bool isAlly = false;
+    [SerializeField] int foodCost = 0;
 
     [SerializeField] Mode mode = Mode.Melee;
     [SerializeField] Range range = Range.Short;
@@ -18,6 +19,10 @@ public class MobStats : MonoBehaviour
     public MobEvents mobEvents = new MobEvents();
 
     //Getters
+    public int GetFoodBaseCost()
+    {
+        return foodCost;
+    }
     public float GetHealth()
     {
         return health;

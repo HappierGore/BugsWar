@@ -33,7 +33,7 @@ public class Spawners : MonoBehaviour
     }
 
     //Permite encontrar la tropa seleccionada desde el ENUM dentro del arreglo de unidades disponibles, utilizado en la creación de niveles
-    private GameObject FindTroopInTroopList(TroopsAvaiable troops)
+    public GameObject FindTroopInTroopList(TroopsAvaiable troops)
     {
         //Variable temporal
         GameObject result = null;

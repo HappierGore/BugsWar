@@ -25,6 +25,7 @@ public class NormalAttack : MonoBehaviour
 
             //Una vez hecho todo lo del daño, desactivamos la bandera para que pueda volver a atacar el mob
             mobEvents.alreadyAtacking = false;
+            mobEvents.endAttackFrame = false;
         }
         yield return new WaitForEndOfFrame();
     }

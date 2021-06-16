@@ -72,16 +72,16 @@ public class MobMovement
                     switch (stats.GetRange())
                     {
                         case MobStats.Range.Short:
-                            result = 0.5f;
-                            break;
-                        case MobStats.Range.Medium:
-                            result = 1.0f;
-                            break;
-                        case MobStats.Range.Long:
                             result = 1.5f;
                             break;
+                        case MobStats.Range.Medium:
+                            result = 1.6f;
+                            break;
+                        case MobStats.Range.Long:
+                            result = 1.7f;
+                            break;
                         case MobStats.Range.VeryLong:
-                            result = 2.0f;
+                            result = 1.8f;
                             break;
                         default:
                             break;

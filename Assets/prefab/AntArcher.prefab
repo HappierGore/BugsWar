@@ -141,6 +141,7 @@ MonoBehaviour:
   speed: 0.45
   defense: 0
   isAlly: 1
+  foodCost: 15
   mode: 1
   range: 1
   target: {fileID: 0}

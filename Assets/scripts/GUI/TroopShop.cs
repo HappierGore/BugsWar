@@ -42,17 +42,25 @@ public class TroopShop : MonoBehaviour
 
         //Si se presiona el botón #1 aparecerá una hormiga soldada (Esto es de prueba, hay que cambiarlo para que pueda spawnear
         //cualquier unidad desde un manager de tropas
-        if (UltimateButton.GetButtonDown("BuyAntSoldier") && food >= 10)
+        if (UltimateButton.GetButtonDown("BuyAntSoldier"))
         {
-            //Costo de la hormiga (Se implementará en MobStats)
-            TakeFood(10);
-            //Spawnear dicha tropa (Falta implementar el cooldown de compra)
-            spawners.SpawnTroop(Spawners.TroopsAvaiable.AntSoldier, ownCastle);
+            //Costo de la hormiga (Obtenido desde sus stats)
+            int foodCost = spawners.FindTroopInTroopList(Spawners.TroopsAvaiable.AntSoldier).GetComponent<MobStats>().GetFoodBaseCost();
+            if (food >= foodCost)
+            {
+                TakeFood(foodCost);
+                //Spawnear dicha tropa (Falta implementar el cooldown de compra)
+                spawners.SpawnTroop(Spawners.TroopsAvaiable.AntSoldier, ownCastle);
+            }
         }
-        if (UltimateButton.GetButtonDown("BuyAntArcher") && food >= 10)
+        if (UltimateButton.GetButtonDown("BuyAntArcher"))
         {
-            TakeFood(10);
-            spawners.SpawnTroop(Spawners.TroopsAvaiable.AntArcher, ownCastle);
+            int foodCost = spawners.FindTroopInTroopList(Spawners.TroopsAvaiable.AntArcher).GetComponent<MobStats>().GetFoodBaseCost();
+            if(food >= foodCost)
+            {
+                TakeFood(foodCost);
+                spawners.SpawnTroop(Spawners.TroopsAvaiable.AntArcher, ownCastle);
+            }
         }
     }
 
