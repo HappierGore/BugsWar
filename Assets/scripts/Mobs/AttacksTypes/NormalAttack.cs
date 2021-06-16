@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalMelee : MonoBehaviour
+public class NormalAttack : MonoBehaviour
 {
 
     //Corutina para atacar, es una corutina ya que de lo contrario, lo ejecutaría múltiples veces

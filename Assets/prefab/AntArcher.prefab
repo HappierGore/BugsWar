@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6821600024728768809}
   - component: {fileID: 8282512261318128558}
-  - component: {fileID: 6821600024728768811}
+  - component: {fileID: 242925464023049483}
   - component: {fileID: 6456692896290443469}
   - component: {fileID: 6888631165083941392}
   - component: {fileID: 6821600024728768810}
   m_Layer: 0
-  m_Name: AntSoldier
+  m_Name: AntArcher
   m_TagString: allies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6821600024728768811
+--- !u!114 &242925464023049483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aa46c4d3635f9488fd668ffcf5ffb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.8
-  damage: 2
+  attackSpeed: 1
+  damage: 4
   damageType: 0
   elementalType: 0
 --- !u!114 &6821600024728768810
@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b546df860a054d48bd4323d7314b4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
-  speed: 0.5
+  health: 15
+  speed: 0.45
   defense: 0
   isAlly: 1
-  mode: 0
-  range: 0
+  mode: 1
+  range: 1
   target: {fileID: 0}

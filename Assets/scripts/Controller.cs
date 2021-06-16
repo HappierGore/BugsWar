@@ -62,7 +62,7 @@ public class Controller : MonoBehaviour
     {
         if (gesture.State == GestureRecognizerState.Executing)
         {
-            Debug.Log("Ejecutando");
+            //Debug.Log("Ejecutando");
             float deltaX = panGesture.DeltaX / 100.0f;
             Vector3 pos = camara.transform.position;
             pos.x += deltaX * -1;

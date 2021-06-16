@@ -49,6 +49,11 @@ public class TroopShop : MonoBehaviour
             //Spawnear dicha tropa (Falta implementar el cooldown de compra)
             spawners.SpawnTroop(Spawners.TroopsAvaiable.AntSoldier, ownCastle);
         }
+        if (UltimateButton.GetButtonDown("BuyAntArcher") && food >= 10)
+        {
+            TakeFood(10);
+            spawners.SpawnTroop(Spawners.TroopsAvaiable.AntArcher, ownCastle);
+        }
     }
 
     //corutina para incrementar dinero, es necesario ya que de lo contrario no podría haber un control de la generación del mismo

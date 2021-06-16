@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AntSoldier : MonoBehaviour
+public class SimpleBehaviour : MonoBehaviour
 {
     MobStats stats;
     MobAttack mobAttack;
-    NormalMelee normalMelee;
+    NormalAttack normalAttack;
     void Start()
     {
         stats = GetComponent<MobStats>();
         mobAttack = GetComponent<MobAttack>();
-        normalMelee = GetComponent<NormalMelee>();
+        normalAttack = GetComponent<NormalAttack>();
     }
 
     void Update()
@@ -24,10 +24,10 @@ public class AntSoldier : MonoBehaviour
         {
             //Si el objetivo no es el castillo, entonces atacas a un mob
             if(stats.target.tag != "castle")
-                StartCoroutine(normalMelee.Attack(stats, stats.mobEvents, mobAttack));
+                StartCoroutine(normalAttack.Attack(stats, stats.mobEvents, mobAttack));
             //Si es un castillo, entonces ataca el castillo (Al ser diferentes scripts, es necesario separar)
             else
-                StartCoroutine(normalMelee.AttackCastle(stats, stats.mobEvents, mobAttack));
+                StartCoroutine(normalAttack.AttackCastle(stats, stats.mobEvents, mobAttack));
         }
         //Si el mob muere, destruir objeto
         if(stats.mobEvents.died)
