@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RedAntAnim.cs" />
     <Compile Include="Assets\scripts\Castle\Castle.cs" />
     <Compile Include="Assets\scripts\Castle\CastleEvents.cs" />
     <Compile Include="Assets\scripts\Castle\CastleStats.cs" />
@@ -72,7 +71,9 @@
     <Compile Include="Assets\scripts\Levels\Level1.cs" />
     <Compile Include="Assets\scripts\Levels\Spawners.cs" />
     <Compile Include="Assets\scripts\Mobs\Ants\SimpleBehaviour.cs" />
+    <Compile Include="Assets\scripts\Mobs\AttacksTypes\KnockBack.cs" />
     <Compile Include="Assets\scripts\Mobs\AttacksTypes\NormalAttack.cs" />
+    <Compile Include="Assets\scripts\Mobs\MobAnimManager.cs" />
     <Compile Include="Assets\scripts\Mobs\MobAttack.cs" />
     <Compile Include="Assets\scripts\Mobs\MobEvents.cs" />
     <Compile Include="Assets\scripts\Mobs\MobMovement.cs" />

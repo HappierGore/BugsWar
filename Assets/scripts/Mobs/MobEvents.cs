@@ -5,7 +5,9 @@ using UnityEngine;
 public class MobEvents
 {
     //Mob Flags
-    public bool alreadyAtacking = false; 
+    public bool moving = false;
+    public bool attack = false;
+    public bool dealDamage = false;
 
     //Targets events
     public bool reachedTarget = false;
@@ -16,4 +18,5 @@ public class MobEvents
 
     //Anim events
     public bool endAttackFrame = false;
+
 }

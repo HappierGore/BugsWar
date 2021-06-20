@@ -74,5 +74,4 @@ public class MobStats : MonoBehaviour
             mobEvents.died = false;
         }
     }
-
 }
