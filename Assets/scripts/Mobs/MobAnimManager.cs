@@ -40,4 +40,9 @@ public class MobAnimManager : MonoBehaviour
     {
         mobEvents.dealDamage = (value.ToLower() == "false") ? false : true;
     }
+
+    public void SetEndAttackFrame(string value)
+    {
+        mobEvents.endAttackFrame = (value.ToLower() == "false") ? false : true;
+    }
 }

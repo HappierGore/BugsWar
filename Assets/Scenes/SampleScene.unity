@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dd89edc9cb3364a8c383b9a043f7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fase1Mob1Cooldown: 90
+  fase1Mob1Cooldown: 5
 --- !u!114 &1062466148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,6 +1624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888631165083941392, guid: 82f0385435c83924288acac9a9e342c9,
+        type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f0385435c83924288acac9a9e342c9, type: 3}

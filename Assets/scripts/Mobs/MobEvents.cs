@@ -11,6 +11,7 @@ public class MobEvents
 
     //Targets events
     public bool reachedTarget = false;
+    public bool killTarget = false;
 
     //Health Events
     public bool damaged = false;
