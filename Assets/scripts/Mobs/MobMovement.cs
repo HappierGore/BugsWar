@@ -32,15 +32,19 @@ public class MobMovement
             //y sale de la función "movimiento", es decir, se detiene el mob
             if (stats.transform.position.x > stats.target.transform.position.x - Range(stats))
             {
+                stats.mobEvents.endAttackFrame = false;
                 stats.mobEvents.reachedTarget = true;
                 stats.mobEvents.moving = false;
                 return;
             }
             //Si no ha alcanzado el mob a su objetivo, el evento se pondrá en falso
-            stats.mobEvents.moving = true;
-            stats.mobEvents.reachedTarget = false;
-            //Movimiento del mob tomando en cuenta la velocidad del mismo desde el script "stats"
-            stats.transform.position = new Vector2(stats.transform.position.x + stats.GetSpeed() * Time.fixedDeltaTime * direction, stats.transform.position.y);
+            if (stats.mobEvents.endAttackFrame)
+            {
+                stats.mobEvents.moving = true;
+                stats.mobEvents.reachedTarget = false;
+                //Movimiento del mob tomando en cuenta la velocidad del mismo desde el script "stats"
+                stats.transform.position = new Vector2(stats.transform.position.x + stats.GetSpeed() * Time.fixedDeltaTime * direction, stats.transform.position.y);
+            }
 
         }
         //El mob ENEMIGO se moverá hasta alcanzar el castillo aliado (Del jugador)
@@ -50,15 +54,19 @@ public class MobMovement
             if (stats.transform.position.x < stats.target.transform.position.x + Range(stats))
             {
                 //Dispara el evento "ReachedTarget"
+                stats.mobEvents.endAttackFrame = false;
                 stats.mobEvents.reachedTarget = true;
                 stats.mobEvents.moving = false;
                 return;
             }
-            //Si no ha alcanzado el mob a su objetivo, el evento se pondrá falso
-            stats.mobEvents.reachedTarget = false;
-            stats.mobEvents.moving = true;
-            //Movimiento del mob considerando stats del mismo
-            stats.transform.position = new Vector2(stats.transform.position.x + stats.GetSpeed() * Time.fixedDeltaTime * direction, stats.transform.position.y);
+            if (stats.mobEvents.endAttackFrame)
+            {
+                //Si no ha alcanzado el mob a su objetivo, el evento se pondrá falso
+                stats.mobEvents.reachedTarget = false;
+                stats.mobEvents.moving = true;
+                //Movimiento del mob considerando stats del mismo
+                stats.transform.position = new Vector2(stats.transform.position.x + stats.GetSpeed() * Time.fixedDeltaTime * direction, stats.transform.position.y);
+            }
         }
     }
 

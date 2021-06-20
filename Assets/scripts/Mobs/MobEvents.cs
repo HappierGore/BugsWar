@@ -6,8 +6,8 @@ public class MobEvents
 {
     //Mob Flags
     public bool moving = false;
-    public bool attack = false;
-    public bool dealDamage = false;
+    public bool attackedTarget = false;
+
 
     //Targets events
     public bool reachedTarget = false;
@@ -18,6 +18,8 @@ public class MobEvents
     public bool died = false;
 
     //Anim events
-    public bool endAttackFrame = false;
+    public bool endAttackFrame = true;
+    public bool attack = false;
+    public bool dealDamage = false;
 
 }

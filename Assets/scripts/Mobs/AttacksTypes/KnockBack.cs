@@ -9,32 +9,31 @@ public class KnockBack : MonoBehaviour
     private bool alreadyAttacking = false;
     public enum TargetType {NEUTRAL,FIRE,WATER,ROCK,AIR,THUNDER,LIGHT,DARK}
     [SerializeField] TargetType targetType = TargetType.NEUTRAL;
-    MobStats stats;
+    MobEvents mobEvents;
 
     private void Start()
     {
-        stats = GetComponent<MobStats>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (!alreadyAttacking)
-        {
-            StartCoroutine(KnockBackHability());
-        }
+        mobEvents = GetComponent<MobStats>().mobEvents;
     }
 
     public IEnumerator KnockBackHability()
     {
-        float chance = Random.Range(0.0f, 100.0f);
-        if (stats.mobEvents.endAttackFrame)
-            print(chance);
-        if (stats.mobEvents.endAttackFrame && chance <= chancePercent)
+        print("Ejecutando Corutine");
+        if (mobEvents.attackedTarget)
         {
-            alreadyAttacking = true;
-            print("KnockingBack");
+            print("Atacó");
+            if (!alreadyAttacking)
+            {
+                alreadyAttacking = true;
+                float chance = Random.Range(0.0f, 100.0f);
+                if (chance <= chancePercent)
+                {
+                    alreadyAttacking = true;
+                    print("KnockingBack");
+                }
+                yield return new WaitForEndOfFrame();
+                alreadyAttacking = false;
+            }
         }
-        yield return new WaitForSecondsRealtime(stats.gameObject.GetComponent<MobAttack>().attackSpeed);
-        alreadyAttacking = false;
     }
 }
