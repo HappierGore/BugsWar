@@ -169,10 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aa46c4d3635f9488fd668ffcf5ffb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 1
+  range: 3
   attackSpeed: 0.8
   damage: 2
-  damageType: 0
-  elementalType: 0
 --- !u!114 &6821600024728768810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,8 +190,6 @@ MonoBehaviour:
   defense: 0
   isAlly: 1
   foodCost: 0
-  mode: 0
-  range: 0
   target: {fileID: 0}
 --- !u!114 &-5936384172885420480
 MonoBehaviour:

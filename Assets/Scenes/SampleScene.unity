@@ -550,7 +550,17 @@ PrefabInstance:
     - target: {fileID: 6821600024728768810, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
         type: 3}
       propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821600024728768810, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
+        type: 3}
+      propertyPath: mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821600024728768810, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
+        type: 3}
+      propertyPath: range
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6888631165083941392, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
         type: 3}
@@ -560,7 +570,17 @@ PrefabInstance:
     - target: {fileID: 6888631165083941392, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
         type: 3}
       propertyPath: attackSpeed
-      value: 1.5
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888631165083941392, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
+        type: 3}
+      propertyPath: mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888631165083941392, guid: 4ae478db13a5e634fbe720d8b8ad4a9e,
+        type: 3}
+      propertyPath: range
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ae478db13a5e634fbe720d8b8ad4a9e, type: 3}
@@ -1311,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dd89edc9cb3364a8c383b9a043f7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fase1Mob1Cooldown: 5
+  fase1Mob1Cooldown: 20
 --- !u!114 &1062466148
 MonoBehaviour:
   m_ObjectHideFlags: 0
