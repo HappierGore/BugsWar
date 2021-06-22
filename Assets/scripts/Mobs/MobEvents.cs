@@ -22,4 +22,7 @@ public class MobEvents
     public bool attack = false;
     public bool dealDamage = false;
 
+    //Mob Effects (Taken)
+    public bool freezed = false;
+
 }

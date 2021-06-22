@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6821600024728768809}
   - component: {fileID: 7177195427582297572}
   - component: {fileID: 8282512261318128558}
+  - component: {fileID: -6791579013144832487}
   - component: {fileID: 5322965821906915555}
   - component: {fileID: 6821600024728768811}
   - component: {fileID: 6456692896290443469}
@@ -107,6 +108,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6791579013144832487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821600024728768808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2680dbdfa25239b45a9ebb683d17c3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSignal: 0
 --- !u!114 &5322965821906915555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,8 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   damage: 2
-  damageType: 0
-  elementalType: 0
 --- !u!114 &6821600024728768810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,10 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
-  speed: 0.5
-  defense: 0
+  speed: 0
   isAlly: 1
   foodCost: 10
   mode: 0
   range: 0
   target: {fileID: 0}
+  targets: []

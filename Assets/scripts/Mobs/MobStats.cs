@@ -15,6 +15,7 @@ public class MobStats : MonoBehaviour
     [SerializeField] Range range = Range.Short;
 
     public Transform target;
+    public Transform[] targets;
 
     public MobEvents mobEvents = new MobEvents();
 

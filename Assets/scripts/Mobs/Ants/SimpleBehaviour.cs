@@ -6,12 +6,19 @@ public class SimpleBehaviour : MonoBehaviour
 {
     MobStats stats;
     MobAttack mobAttack;
+    AreaAttack areaAttack;
     NormalAttack normalAttack;
     void Start()
     {
         stats = GetComponent<MobStats>();
+
         mobAttack = GetComponent<MobAttack>();
-        normalAttack = GetComponent<NormalAttack>();
+
+        if (TryGetComponent(out NormalAttack normalAttack))
+            this.normalAttack = normalAttack;
+
+        else if (TryGetComponent(out AreaAttack areaAttack))
+            this.areaAttack = areaAttack;
     }
 
     void Update()
@@ -22,7 +29,11 @@ public class SimpleBehaviour : MonoBehaviour
         //Si el mob ha alcanzado su objetivo
         if(stats.mobEvents.reachedTarget)
         {
-            StartCoroutine(normalAttack.Attack(stats, stats.mobEvents, mobAttack));
+            if (normalAttack != null)
+                StartCoroutine(normalAttack.Attack(stats, stats.mobEvents, mobAttack));
+
+            else if (areaAttack != null)
+                StartCoroutine(areaAttack.Attack(stats, stats.mobEvents, mobAttack));
         }
         //Si el mob muere, destruir objeto
         if(stats.mobEvents.died)

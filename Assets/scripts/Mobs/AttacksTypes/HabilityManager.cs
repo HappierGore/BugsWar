@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class HabilityManager : MonoBehaviour
 {
-    KnockBack knockBack = null;
     private bool executingHabilities = false;
+    Freeze freeze;
 
+    private void Start()
+    {
+        //Si el mob en cuestión tiene el componente / habilidad Freeze, entonces guarda
+        if (TryGetComponent(out Freeze freeze))
+            this.freeze = freeze;
+    }
 
     //Evalua todas las habilidades que tenga el mob y las ejecuta
     public IEnumerator ExecuteHabilities()
@@ -14,18 +20,16 @@ public class HabilityManager : MonoBehaviour
         if (!executingHabilities)
         {
             executingHabilities = true;
-            KnockBackExecute();
+            FreezeExecute();
         }
         yield return new WaitForEndOfFrame();
         executingHabilities = false;
     }
 
-    //Habilidad "knockBack"
-   private void KnockBackExecute()
+    //Habilidad "Freeze"
+   private void FreezeExecute()
    {
-       if(TryGetComponent(out KnockBack knockBack))
-       {
-            StartCoroutine(knockBack.KnockBackHability());
-       }
+        if (freeze != null)
+            freeze.FreezeHability();
    }
 }
