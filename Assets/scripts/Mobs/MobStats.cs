@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MobStats : MonoBehaviour
 {
+    public enum TargetType { NEUTRAL, FIRE, WATER, ROCK, AIR, THUNDER, LIGHT, DARK }
+    public TargetType mobType = TargetType.NEUTRAL;
+
     public enum Mode { Melee, Range }
     public enum Range { Short, Medium, Long, VeryLong }
 

@@ -24,5 +24,6 @@ public class MobEvents
 
     //Mob Effects (Taken)
     public bool freezed = false;
+    public bool knockedback = false;
 
 }

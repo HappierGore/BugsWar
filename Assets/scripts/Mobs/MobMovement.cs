@@ -39,7 +39,7 @@ public class MobMovement
                 return;
             }
             //Si no ha alcanzado el mob a su objetivo, el evento se pondrá en falso
-            if (stats.mobEvents.endAttackFrame && !stats.mobEvents.freezed)
+            if (stats.mobEvents.endAttackFrame && !stats.mobEvents.freezed && !stats.mobEvents.knockedback)
             {
                 stats.mobEvents.moving = true;
                 stats.mobEvents.reachedTarget = false;
