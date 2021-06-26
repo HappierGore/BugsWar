@@ -9,7 +9,7 @@ public class Spawners : MonoBehaviour
     public GameObject[] troopsList;
 
     //Y aquí enlistarlos en un ENUM para posteriormente utilizarlos al crear niveles
-    public enum TroopsAvaiable { AntSoldier, AntArcher };
+    public enum TroopsAvaiable { AntSoldier, AntArcher, AreaAnt, FreezeAnt, KnockBackAnt};
 
     //Función que permitirá spawnear un mob, recibiendo como parámetro la tropa a spawnear y el castillo donde aparecerá
     //Esto se utiliza tanto para crear niveles como en el juego para el jugador

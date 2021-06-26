@@ -6,7 +6,7 @@ public class NormalAttack : MonoBehaviour
 {
     private bool alreadyAtacking = false;
 
-    //Corutina para atacar, es una corutina ya que de lo contrario, lo ejecutaría múltiples veces
+    //Corutina para atacar, es na corutina ya que de lo contrario, lo ejecutaría múltiples veces
    public IEnumerator Attack(MobStats stats, MobEvents mobEvents, MobAttack mobAttack)
     {
         //Si no esta ya atacando y el mob en cuestión ha alcanzado a su objetivo (Mob)
@@ -16,11 +16,13 @@ public class NormalAttack : MonoBehaviour
             alreadyAtacking = true;
 
             //Activamos evento "Attack" para que la animación de ataque inicie (Condicionado en los frames de la animación)
-            mobEvents.attack = true;
-            
+            mobEvents.attack = (!mobEvents.knockedback) ? true : false;
+
             //Momento del frame en donde se ejecutará el daño (Condicionado en los frames de la animación)
-            if(mobEvents.dealDamage)
+            if (mobEvents.dealDamage)
             {
+                mobEvents.endAttackFrame = false;
+
                 //Iniciamos la corutina que esta dentro del script stats pare hacer que reciba daño (Mirar MobStats y CastleStats)
                 ChooseRoutineDamage(stats, mobAttack);
 
@@ -33,17 +35,21 @@ public class NormalAttack : MonoBehaviour
                 //Regresamos el evento a su valor original
                 mobEvents.dealDamage = false;
 
+                for (int i = 0; i < 10; i++)
+                {
+                    if (mobEvents.knockedback) break;
+                    yield return new WaitForSecondsRealtime(GetComponent<MobAnimManager>().attackTime / 10);
+                }
+
+
+                mobEvents.endAttackFrame = true;
                 //Esperar el tiempo que tiene el mob como velocidad de ataque (en segundos)
                 yield return new WaitForSecondsRealtime(mobAttack.attackSpeed);
 
                 //Esperar a que el último frame de ataque haya sido alcanzado (Desde la animación)
-                if (mobEvents.endAttackFrame)
-                {
-                    //Regresamos los eventos al valor original
-                    mobEvents.attack = false;
-                    mobEvents.attackedTarget = false;
-                }
-                    
+                mobEvents.attack = false;
+                mobEvents.attackedTarget = false;
+
             }
             //Una vez hecho todo lo del daño, desactivamos la bandera para que pueda volver a atacar el mob
             alreadyAtacking = false;

@@ -6,10 +6,25 @@ public class MobAnimManager : MonoBehaviour
 {
     private Animator animator;
     private MobEvents mobEvents;
+    public float attackTime = 0.0f;
     void Start()
     {
         animator = GetComponent<Animator>();
         mobEvents = GetComponent<MobStats>().mobEvents;
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "TestAttack":
+                    {
+                        attackTime = clip.length;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -39,10 +54,5 @@ public class MobAnimManager : MonoBehaviour
     public void SetDealDamage(string value)
     {
         mobEvents.dealDamage = (value.ToLower() == "false") ? false : true;
-    }
-
-    public void SetEndAttackFrame(string value)
-    {
-        mobEvents.endAttackFrame = (value.ToLower() == "false") ? false : true;
     }
 }

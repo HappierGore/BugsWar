@@ -67,6 +67,8 @@
     <Compile Include="Assets\scripts\Castle\CastleStats.cs" />
     <Compile Include="Assets\scripts\Castle\CastleUpgrades.cs" />
     <Compile Include="Assets\scripts\Controller.cs" />
+    <Compile Include="Assets\scripts\DataManager\JsonHelper.cs" />
+    <Compile Include="Assets\scripts\DataManager\TroopManager.cs" />
     <Compile Include="Assets\scripts\GUI\TroopShop.cs" />
     <Compile Include="Assets\scripts\Levels\Level1.cs" />
     <Compile Include="Assets\scripts\Levels\Spawners.cs" />

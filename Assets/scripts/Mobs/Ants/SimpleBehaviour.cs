@@ -25,9 +25,8 @@ public class SimpleBehaviour : MonoBehaviour
     {
         //Hacer que el mob se mueva, todo ya esta condicionado en el script MobMovement para que este decida hacia qué dirección andar
         MobMovement.Move(stats);
-
         //Si el mob ha alcanzado su objetivo
-        if(stats.mobEvents.reachedTarget)
+        if (stats.mobEvents.reachedTarget)
         {
             if (normalAttack != null)
                 StartCoroutine(normalAttack.Attack(stats, stats.mobEvents, mobAttack));

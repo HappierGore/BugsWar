@@ -84,6 +84,7 @@ public class HabilitiesEffects : MonoBehaviour
 
             for (int i = 0; i < level*20; i++)
             {
+                mobEvents.knockedback = true;
                 if (!mobStats.IsAlly() && transform.position.x < GameObject.Find("EnemyCastle").transform.position.x)
                     transform.position = new Vector2(transform.position.x + level * 0.1f, transform.position.y);
                 else if(mobStats.IsAlly() && transform.position.x > GameObject.Find("OwnCastle").transform.position.x)

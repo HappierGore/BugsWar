@@ -8,6 +8,9 @@ public class TroopShop : MonoBehaviour
     //Bandera para aumentar el conteo del dinero
     bool moneyAmountCooldown = false;
 
+    //Variable que guardará las tropas seleccionadas
+    Spawners.TroopsAvaiable[] troopSelected = new Spawners.TroopsAvaiable[8];
+
     //Variable para la comida
     private double food = 0;
 
@@ -29,6 +32,8 @@ public class TroopShop : MonoBehaviour
         spawners = GetComponent<Spawners>();
         ownCastle = GameObject.Find("OwnCastle").transform;
         castleUpgrades = GetComponent<CastleUpgrades>();
+        GetComponent<TroopManager>().CreateJSON();
+        troopSelected = GetComponent<TroopManager>().LoadMobsToString();
     }
 
     private void Update()
@@ -42,26 +47,37 @@ public class TroopShop : MonoBehaviour
 
         //Si se presiona el botón #1 aparecerá una hormiga soldada (Esto es de prueba, hay que cambiarlo para que pueda spawnear
         //cualquier unidad desde un manager de tropas
-        if (UltimateButton.GetButtonDown("BuyAntSoldier"))
+        if (UltimateButton.GetButtonDown("BuyTropSlot1"))
         {
             //Costo de la hormiga (Obtenido desde sus stats)
-            int foodCost = spawners.FindTroopInTroopList(Spawners.TroopsAvaiable.AntSoldier).GetComponent<MobStats>().GetFoodBaseCost();
+            int foodCost = spawners.FindTroopInTroopList(troopSelected[0]).GetComponent<MobStats>().GetFoodBaseCost();
             if (food >= foodCost)
             {
                 TakeFood(foodCost);
                 //Spawnear dicha tropa (Falta implementar el cooldown de compra)
-                spawners.SpawnTroop(Spawners.TroopsAvaiable.AntSoldier, ownCastle);
+                spawners.SpawnTroop(troopSelected[0], ownCastle);
             }
         }
-        if (UltimateButton.GetButtonDown("BuyAntArcher"))
+        if (UltimateButton.GetButtonDown("BuyTropSlot2"))
         {
-            int foodCost = spawners.FindTroopInTroopList(Spawners.TroopsAvaiable.AntArcher).GetComponent<MobStats>().GetFoodBaseCost();
-            if(food >= foodCost)
+            //Costo de la hormiga (Obtenido desde sus stats)
+            int foodCost = spawners.FindTroopInTroopList(troopSelected[1]).GetComponent<MobStats>().GetFoodBaseCost();
+            if (food >= foodCost)
             {
                 TakeFood(foodCost);
-                spawners.SpawnTroop(Spawners.TroopsAvaiable.AntArcher, ownCastle);
+                //Spawnear dicha tropa (Falta implementar el cooldown de compra)
+                spawners.SpawnTroop(troopSelected[1], ownCastle);
             }
         }
+        /*    if (UltimateButton.GetButtonDown("BuyAntArcher"))
+            {
+                int foodCost = spawners.FindTroopInTroopList(Spawners.TroopsAvaiable.AntArcher).GetComponent<MobStats>().GetFoodBaseCost();
+                if(food >= foodCost)
+                {
+                    TakeFood(foodCost);
+                    spawners.SpawnTroop(Spawners.TroopsAvaiable.AntArcher, ownCastle);
+                }
+            }*/
     }
 
     //corutina para incrementar dinero, es necesario ya que de lo contrario no podría haber un control de la generación del mismo

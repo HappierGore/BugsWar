@@ -33,16 +33,15 @@ public class MobMovement
             //y sale de la función "movimiento", es decir, se detiene el mob
             if ((stats.transform.position.x > stats.target.transform.position.x - Range(stats) && stats.IsAlly()) || (stats.transform.position.x < stats.target.transform.position.x + Range(stats) && !stats.IsAlly()))
             {
-                stats.mobEvents.endAttackFrame = false;
                 stats.mobEvents.reachedTarget = true;
                 stats.mobEvents.moving = false;
                 return;
             }
             //Si no ha alcanzado el mob a su objetivo, el evento se pondrá en falso
-            if (stats.mobEvents.endAttackFrame && !stats.mobEvents.freezed && !stats.mobEvents.knockedback)
+            if (stats.mobEvents.endAttackFrame || (!stats.mobEvents.knockedback && !stats.mobEvents.freezed))
             {
-                stats.mobEvents.moving = true;
                 stats.mobEvents.reachedTarget = false;
+                stats.mobEvents.moving = true;
                 //Movimiento del mob tomando en cuenta la velocidad del mismo desde el script "stats"
                 stats.transform.position = new Vector2(stats.transform.position.x + stats.GetSpeed() * Time.fixedDeltaTime * direction, stats.transform.position.y);
             }
@@ -67,13 +66,13 @@ public class MobMovement
                             result = 1.5f;
                             break;
                         case MobStats.Range.Medium:
-                            result = 1.6f;
+                            result = 1.8f;
                             break;
                         case MobStats.Range.Long:
-                            result = 1.7f;
+                            result = 2.2f;
                             break;
                         case MobStats.Range.VeryLong:
-                            result = 1.8f;
+                            result = 2.6f;
                             break;
                         default:
                             break;
@@ -87,16 +86,16 @@ public class MobMovement
                     switch (stats.GetRange())
                     {
                         case MobStats.Range.Short:
-                            result = 1.5f;
+                            result = 2.0f;
                             break;
                         case MobStats.Range.Medium:
-                            result = 2.5f;
+                            result = 3.0f;
                             break;
                         case MobStats.Range.Long:
-                            result = 3.5f;
+                            result = 4.0f;
                             break;
                         case MobStats.Range.VeryLong:
-                            result = 4.5f;
+                            result = 5.0f;
                             break;
                         default:
                             break;
